@@ -1,0 +1,13 @@
+<h1>Task List</h1>
+<%= link_to 'Ajouter une Tache', new_task_path %>
+
+<ul>
+  <% @tasks.each do |task| %>
+    <li class="task <%= task.done %>">
+      [<% if task.done %>x<% else %> <% end %>]
+      <%= link_to task.title, task_path(task) %> | 
+      <%= link_to 'Supprimer', task_path(task), method: :delete %> | 
+      <%= link_to 'Editer', edit_task_path(task) %>
+    </li>
+  <% end %>
+</ul>
